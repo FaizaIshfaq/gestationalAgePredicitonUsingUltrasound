@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -41,5 +44,19 @@ class Utils{
           content: Text(message),
       )
     );
+  }
+  static bool isAndroidPlatform() {
+    try {
+      if (Platform.isAndroid || Platform.isIOS) {
+        //running on android or ios device
+        return true;
+      }
+    } catch (e) {
+      if (kIsWeb) {
+        return false;
+        //running on web
+      }
+    }
+    return false;
   }
 }

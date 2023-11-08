@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\src\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\Administrator\StudioProjects\fetal_femur_ultrasound"
+export "FLUTTER_ROOT=/Users/naeemtariq/Desktop/Developer/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/naeemtariq/Desktop/AndroidStudioProjects/flutter_practces/age_prediction/gestationalAgePredicitonUsingUltrasound"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
