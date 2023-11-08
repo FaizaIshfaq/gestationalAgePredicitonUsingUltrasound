@@ -1,7 +1,4 @@
 import 'package:fetal_femur_ultrasound/utils/app_pages.dart';
-import 'package:fetal_femur_ultrasound/utils/application.dart';
-import 'package:fetal_femur_ultrasound/utils/navigation_controller.dart';
-import 'package:fetal_femur_ultrasound/utils/routes/routes.dart';
 import 'package:fetal_femur_ultrasound/utils/routes/routes_name.dart';
 import 'package:fetal_femur_ultrasound/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +7,7 @@ import 'package:get/get.dart';
 
 void main() {
   usePathUrlStrategy();
-  Get.put(NavigationController());
+  // Get.put(NavigationController());
   runApp(const MyApp());
 }
 
@@ -22,8 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      navigatorKey: Application.navigatorKey,
-      theme: ThemeData(
+       theme: ThemeData(
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
