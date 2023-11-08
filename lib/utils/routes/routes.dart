@@ -1,6 +1,6 @@
 import 'package:fetal_femur_ultrasound/utils/routes/routes_name.dart';
-import 'package:fetal_femur_ultrasound/view/home_screen.dart';
-import 'package:fetal_femur_ultrasound/view/login_screen.dart';
+import 'package:fetal_femur_ultrasound/view/mobile/home_screen.dart';
+import 'package:fetal_femur_ultrasound/view/mobile/login_screen.dart';
 import 'package:fetal_femur_ultrasound/view/web/login_screen_web.dart';
 import 'package:flutter/material.dart';
 

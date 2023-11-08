@@ -1,9 +1,9 @@
 import 'package:fetal_femur_ultrasound/res/components/round_button.dart';
-import 'package:fetal_femur_ultrasound/view/home_screen.dart';
+import 'package:fetal_femur_ultrasound/view/mobile/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/routes/routes_name.dart';
-import '../utils/utils.dart';
+import '../../utils/routes/routes_name.dart';
+import '../../utils/utils.dart';
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
