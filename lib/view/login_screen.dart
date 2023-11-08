@@ -1,7 +1,10 @@
 import 'package:fetal_femur_ultrasound/res/components/round_button.dart';
 import 'package:fetal_femur_ultrasound/view/home_screen.dart';
+import 'package:fetal_femur_ultrasound/view_model/auth_view_model.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
 class LoginView extends StatefulWidget {
@@ -17,30 +20,23 @@ class _LoginViewState extends State<LoginView> {
   final TextEditingController _passwordController=TextEditingController();
   FocusNode emailFocusNode=FocusNode();
   FocusNode passwordFocusNode=FocusNode();
+  void dispose(){
+    _emailController.dispose();
+    _passwordController.dispose();
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+    _obsecurePassword.dispose();
+  }
   @override
   Widget build(BuildContext context) {
+    final authViewModel=Provider.of<AuthViewModel>(context);
     final height = MediaQuery.of(context)
                        .size.height*1;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
         centerTitle: true,
       ),
-        // body: Center(
-        //    child: InkWell(
-        //      onTap:(){
-        //        Utils.snakBar('No Internet access', context);
-        //        // Utils.flushBarErrorMessages('No Internet access', context);
-        //        // Utils.toastMessage("toast msg no internet");
-        //        // Navigator.pushNamed(context, RoutesName.home);
-        //        // Navigator.push(
-        //        //     context,
-        //        //     MaterialPageRoute(builder: (context)=>HomeScreen()),
-        //        // );
-        //        },
-        //      child: Text('Click'),
-        //    ),
-        // )
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +46,7 @@ class _LoginViewState extends State<LoginView> {
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               focusNode: emailFocusNode,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
               hintText:"email",
                 labelText: "Email",
                 prefixIcon: Icon(Icons.alternate_email)
@@ -70,7 +66,7 @@ class _LoginViewState extends State<LoginView> {
                       decoration: InputDecoration(
                           hintText:"password",
                           labelText: "Password",
-                          prefixIcon: Icon(Icons.lock_open_rounded),
+                          prefixIcon: const Icon(Icons.lock_open_rounded),
                           suffixIcon: InkWell(
                               onTap: (){
                                 _obsecurePassword.value=!_obsecurePassword.value;
@@ -81,10 +77,29 @@ class _LoginViewState extends State<LoginView> {
                   );
                 }
             ),
-            SizedBox(
+            const SizedBox(
                 height:30,
             ),
-            RoundButton(title: "Submit", onPress: (){})
+            RoundButton(
+              title: 'Button Text',
+              loading: authViewModel.loading,// This text will be displayed inside the button
+              onPress: () {
+                if(_emailController.text.isEmpty){
+                  Utils.flushBarErrorMessages("Please enter email", context);
+                }else if(_passwordController.text.isEmpty){
+                  Utils.flushBarErrorMessages("Please enter password", context);
+                }else if(_passwordController.text.length<6){
+                  Utils.snakBar("Please enter 6 digit password", context);
+                }else{
+                  Map data={
+                    "email":_emailController.text.toString(),
+                    "password":_passwordController.text.toString(),
+                  };
+                  authViewModel.loginApi(data,context);
+                  print("Api hit");
+                }
+              },
+            ),
           ],
         ),
       ),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694673470545",
+    "project_id": "ageprediction-622f2",
+    "storage_bucket": "ageprediction-622f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694673470545:android:cbe12d55f85583084af470",
+        "android_client_info": {
+          "package_name": "com.example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChDxEuZyCxTKGrA5Xsdz-dpuRdcgeaTQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
