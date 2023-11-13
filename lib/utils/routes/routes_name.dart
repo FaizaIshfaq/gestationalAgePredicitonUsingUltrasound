@@ -6,7 +6,7 @@ class RoutesName {
   static const String home = "home_screen";
   static const String loginWeb = "/login";
   static const String masterLayout = "/";
-  static const String dashboard = "/home";
+  static const String patients = "/patients";
   static const String listScreen = "/list";
   static const String formScreen = "/form";
   static const String forbiddenPage = "/forbidden";

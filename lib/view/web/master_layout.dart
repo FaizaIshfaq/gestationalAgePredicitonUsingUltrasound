@@ -6,6 +6,8 @@ import 'package:fetal_femur_ultrasound/utils/routes/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../res/AppConst.dart';
+
 class MasterLayout extends StatefulWidget {
   MasterLayout({Key? key}) : super(key: key);
 
@@ -29,9 +31,9 @@ class _MasterLayoutState extends State<MasterLayout> {
                 Expanded(
                   child: Container(
                     decoration:
-                        const BoxDecoration(color: LITE_GREY_SCREEN_BACKGROUND),
+                        const BoxDecoration(color: AppColors.headingsPurpleColor),
                     child: Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.only(left: 1,top: 1),
                         child: InnerNavigator(
                           initialRoute: getRoute(Get.currentRoute),
                         )),
@@ -48,7 +50,7 @@ class _MasterLayoutState extends State<MasterLayout> {
   String getRoute(String currentRoute) {
     print('current route is ' + currentRoute);
     if ( Get.currentRoute == RoutesName.masterLayout) {
-      return RoutesName.dashboard;
+      return RoutesName.patients;
     }
     return currentRoute;
   }

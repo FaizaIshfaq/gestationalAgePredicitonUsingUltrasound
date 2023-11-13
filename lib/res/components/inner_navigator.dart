@@ -1,7 +1,7 @@
 import 'package:fetal_femur_ultrasound/res/components/dashboard_header.dart';
 import 'package:fetal_femur_ultrasound/utils/app_const.dart';
 import 'package:fetal_femur_ultrasound/utils/routes/routes_name.dart';
-import 'package:fetal_femur_ultrasound/view/web/dashboard_screen.dart';
+import 'package:fetal_femur_ultrasound/view/web/patients.dart';
 import 'package:fetal_femur_ultrasound/view/web/forbidden_screen.dart';
 import 'package:fetal_femur_ultrasound/view/web/form_screen.dart';
 import 'package:fetal_femur_ultrasound/view/web/list_screen.dart';
@@ -60,8 +60,8 @@ class _InnerNavigatorState extends State<InnerNavigator> {
     print('generate route called');
     if (settings.name != null) print('generate route ' + settings.name!);
 
-    if (settings.name == RoutesName.dashboard) {
-      return _getPageRoute(RoutesName.dashboard, const DashboardScreen(), settings);
+    if (settings.name == RoutesName.patients) {
+      return _getPageRoute(RoutesName.patients, const DashboardScreen(), settings);
     }
     if (settings.name == RoutesName.formScreen) {
       return _getPageRoute(RoutesName.formScreen, const FormScreen(), settings);
