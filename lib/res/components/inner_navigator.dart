@@ -3,9 +3,10 @@ import 'package:fetal_femur_ultrasound/utils/app_const.dart';
 import 'package:fetal_femur_ultrasound/utils/routes/routes_name.dart';
 import 'package:fetal_femur_ultrasound/view/web/patients.dart';
 import 'package:fetal_femur_ultrasound/view/web/forbidden_screen.dart';
-import 'package:fetal_femur_ultrasound/view/web/form_screen.dart';
-import 'package:fetal_femur_ultrasound/view/web/list_screen.dart';
+import 'package:fetal_femur_ultrasound/view/web/appointments_screen.dart';
+import 'package:fetal_femur_ultrasound/view/web/records_screen.dart';
 import 'package:fetal_femur_ultrasound/view/web/login_screen_web.dart';
+import 'package:fetal_femur_ultrasound/view/web/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -63,11 +64,14 @@ class _InnerNavigatorState extends State<InnerNavigator> {
     if (settings.name == RoutesName.patients) {
       return _getPageRoute(RoutesName.patients, const DashboardScreen(), settings);
     }
-    if (settings.name == RoutesName.formScreen) {
-      return _getPageRoute(RoutesName.formScreen, const FormScreen(), settings);
+    if (settings.name == RoutesName.appointmentsScreen) {
+      return _getPageRoute(RoutesName.appointmentsScreen, const AppointmentScreen(), settings);
     }
-    if (settings.name == RoutesName.listScreen) {
-      return _getPageRoute(RoutesName.listScreen, const ListScreen(), settings);
+    if (settings.name == RoutesName.recordScreen) {
+      return _getPageRoute(RoutesName.recordScreen, const RecordsScreen(), settings);
+    }
+    if (settings.name == RoutesName.profilePage) {
+      return _getPageRoute(RoutesName.profilePage, const profileScreenWeb(), settings);
     }
     return _getPageRoute(RoutesName.forbiddenPage, const ForbiddenScreen(), settings);
   }

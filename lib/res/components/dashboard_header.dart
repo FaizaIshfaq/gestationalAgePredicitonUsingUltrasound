@@ -13,7 +13,7 @@ class DashboardHeader extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(color: AppColors.screenBackgroundBlueColor),
       child: Padding(
-          padding: const EdgeInsets.only(top:30.0,bottom: 10),
+          padding: const EdgeInsets.only(top:20.0,bottom: 5),
           child: Row(
             children: [
               Expanded(
@@ -45,8 +45,8 @@ class DashboardHeader extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      width: 50,
-                      height: 50,
+                      width: 70,
+                      height: 70,
                       child: ClipOval(
                         child: Image.asset(
                           'lib/images/userprofile.jpg',
@@ -54,7 +54,7 @@ class DashboardHeader extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8.0), // Add some space between the image and text
+                    const SizedBox(height: 5.0), // Add some space between the image and text
                     const Text(
                       'Faiza Ishfaq',
                       style: TextStyle(
@@ -62,7 +62,6 @@ class DashboardHeader extends StatelessWidget {
                         fontSize: 14.0, // Set your desired font size
                       ),
                     ),
-                    const SizedBox(height: 10.0),
                   ],
                 ),
                   onTap: () async {

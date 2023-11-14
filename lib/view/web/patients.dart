@@ -2,6 +2,7 @@ import 'package:fetal_femur_ultrasound/res/components/outlineButtonWeb.dart';
 import 'package:flutter/material.dart';
 
 import '../../res/AppConst.dart';
+import '../../res/components/datePicker.dart';
 import '../../res/components/inputField.dart';
 import '../../res/components/inputFieldWithCarrot.dart';
 
@@ -13,6 +14,11 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+
+  TextEditingController dobDateController = TextEditingController();
+  TextEditingController startDateController = TextEditingController();
+  late String selectedDate ;
+  late String dobDate;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +48,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
               children: [
                 Container(
                   decoration: BoxDecoration(
+                    color: AppColors.overlayPurpleColor,
                     border: Border.all(
                       color: AppColors.profileTextColor,
                       width: 1.5,
                     ),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: Padding(
@@ -59,25 +67,40 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               InputFieldWithLabel(
                                 label: 'First Name',
                                 hintText: 'First name',
+                                dateIcon: false,
                               ),
                               SizedBox(width: 16.0),
                               // Add some space between the input fields
                               InputFieldWithLabel(
                                 label: 'Last Name',
                                 hintText: 'Last name',
+                                dateIcon: false,
                               ),
                             ],
                           ),
                         ),
                         const SizedBox(height: 10.0),
-                        const IntrinsicHeight(
+                        IntrinsicHeight(
                           child: Row(
                             children: [
                               SizedBox(
                                 width:255,
                                 child: InputFieldWithLabel(
+                                  textEditingController: dobDateController,
                                   label: 'DOB',
                                   hintText: 'Date of birth',
+                                  dateIcon: true,
+                                  onTap: () {
+                                  DatePicker().selectDate(
+                                      context,
+                                      onFormatDate: (date) {
+                                        dobDate = date;
+                                        dobDateController.text = date;
+                                      },onServerDateFormat: (serverDateFormat){
+
+                                  }
+                                  );
+                                },
                                 ),
                               ),
                               SizedBox(width: 20.0),
@@ -94,8 +117,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               SizedBox(width: 16.0),
                               // Add some space between the input fields
                               InputFieldWithLabel(
+                                dateIcon: true,
+                                textEditingController: startDateController,
                                 label: 'Date',
                                 hintText: 'Select date',
+                                onTap: () {
+                                  DatePicker().selectDate(
+                                      context,
+                                      onFormatDate: (date) {
+                                        selectedDate = date;
+                                        startDateController.text = date;
+                                      },onServerDateFormat: (serverDateFormat){
+
+                                  }
+                                  );
+                                },
                               ),
                             ],
                           ),
@@ -122,6 +158,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 child: InputFieldWithLabel(
                                   label: 'Doctor',
                                   hintText: 'Examined by',
+                                  dateIcon: false,
                                 ),
                               ),
                             ],
@@ -134,12 +171,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               InputFieldWithLabel(
                                 label: 'Email',
                                 hintText: 'Email',
+                                dateIcon: false,
                               ),
                               const SizedBox(width: 16.0),
                               // Add some space between the input fields
                               InputFieldWithLabel(
                                 label: 'Phone',
                                 hintText: 'Phone',
+                                dateIcon: false,
                                 inputFormatter: NUMBER_WITHOUT_DECIMAL,
                               ),
                             ],

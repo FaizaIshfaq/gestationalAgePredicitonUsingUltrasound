@@ -44,6 +44,7 @@ class _InputFieldLabelWithCarotState extends State<InputFieldLabelWithCarot> {
           height: 50,
           child: InputDecorator(
             decoration: InputDecoration(
+              contentPadding: EdgeInsets.only(left: 20),
               filled: true,
               fillColor: AppColors.inputFieldBackgroundColor,
               border: OutlineInputBorder(

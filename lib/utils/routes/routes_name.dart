@@ -7,7 +7,8 @@ class RoutesName {
   static const String loginWeb = "/login";
   static const String masterLayout = "/";
   static const String patients = "/patients";
-  static const String listScreen = "/list";
-  static const String formScreen = "/form";
+  static const String recordScreen = "/records";
+  static const String appointmentsScreen = "/appointments";
   static const String forbiddenPage = "/forbidden";
+  static const String profilePage='/profile';
 }

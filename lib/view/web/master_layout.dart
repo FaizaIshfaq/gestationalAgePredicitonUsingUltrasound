@@ -20,6 +20,7 @@ class _MasterLayoutState extends State<MasterLayout> {
   Widget build(BuildContext context) {
     // print('User type is '+user.type.toString());
     return Scaffold(
+      backgroundColor: AppColors.screenBackgroundBlueColor,
       body: Row(
         children: [
           const Expanded(flex: 1, child: WebDashboardSideMenu()),

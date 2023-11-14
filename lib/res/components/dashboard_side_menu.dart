@@ -57,7 +57,7 @@ class _WebDashboardSideMenuState extends State<WebDashboardSideMenu> {
                           selectedMenuItem = 'Appointment';
                         });
                         Get.toNamed(
-                          RoutesName.formScreen,
+                          RoutesName.appointmentsScreen,
                           id: INNER_ROUTER_ID,
                           preventDuplicates: false,
                         );
@@ -72,7 +72,7 @@ class _WebDashboardSideMenuState extends State<WebDashboardSideMenu> {
                           selectedMenuItem = 'Records';
                         });
                         Get.toNamed(
-                          RoutesName.listScreen,
+                          RoutesName.recordScreen,
                           id: INNER_ROUTER_ID,
                           preventDuplicates: false,
                         );
@@ -93,7 +93,7 @@ class _WebDashboardSideMenuState extends State<WebDashboardSideMenu> {
                             selectedMenuItem = 'Profile';
                           });
                           Get.toNamed(
-                            RoutesName.patients,
+                            RoutesName.profilePage,
                             id: INNER_ROUTER_ID,
                             preventDuplicates: false,
                           );
@@ -107,10 +107,8 @@ class _WebDashboardSideMenuState extends State<WebDashboardSideMenu> {
                           setState(() {
                             selectedMenuItem = 'Logout';
                           });
-                          Get.toNamed(
-                            RoutesName.formScreen,
-                            id: INNER_ROUTER_ID,
-                            preventDuplicates: false,
+                          Get.offNamed(
+                            RoutesName.loginWeb,
                           );
                         },
                         menuImage: Image.asset('lib/images/logout.png'),

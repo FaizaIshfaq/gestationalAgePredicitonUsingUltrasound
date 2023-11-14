@@ -4,13 +4,20 @@ import 'package:flutter/services.dart';
 
 class InputFieldWithLabel extends StatefulWidget {
   final String label;
+
   final List<TextInputFormatter>? inputFormatter;
   final String hintText;
+  final bool dateIcon;
+  final TextEditingController? textEditingController;
+  final Function()? onTap;
 
   const InputFieldWithLabel({
     Key? key,
     required this.label,
+    this.textEditingController,
+    required this.dateIcon,
     this.inputFormatter,
+    this.onTap,
     required this.hintText,
   }) : super(key: key);
 
@@ -36,6 +43,8 @@ class _InputFieldWithLabelState extends State<InputFieldWithLabel> {
           SizedBox(
             height: 50,
             child: TextFormField(
+              onTap: widget.onTap,
+              controller: widget.textEditingController,
               inputFormatters: widget.inputFormatter,
               style: const TextStyle(color: AppColors
                   .inputTextColor),
@@ -53,7 +62,11 @@ class _InputFieldWithLabelState extends State<InputFieldWithLabel> {
                   color: AppColors
                       .inputTextDarkGrayColor, // Set your desired hint text color
                 ),
-                contentPadding: const EdgeInsets.only(left: 20),
+                contentPadding: const EdgeInsets.only(left: 20,right: 10),
+                suffixIcon:widget.dateIcon?const Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: Icon(Icons.calendar_month,color: AppColors.iconPurpleColor,),
+                ):Text(''), // Set your desired icon
               ),
             ),
           ),
